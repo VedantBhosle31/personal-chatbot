@@ -1,5 +1,13 @@
 version: '3'
 services:
+  app:
+    build:
+      context: ./anthropic-webui
+      dockerfile: Dockerfile
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    ports:
+      - "8000:8000"
   openwebui:
     image: ghcr.io/open-webui/open-webui:main
     ports:
